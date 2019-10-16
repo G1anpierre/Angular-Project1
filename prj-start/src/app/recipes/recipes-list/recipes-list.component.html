@@ -5,14 +5,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12">
-            <a href="#" class="list-group-item clearfix">
+        <div class="col-xs-12" >
+            <a href="#" class="list-group-item clearfix" *ngFor= "let oneRecipe of recipes">
                 <div class="pull-left">
-                    <h4 class="list-group-item-heading">Recipe Name</h4>
-                    <p class="list-group-item-text">Descrition</p>
+                    <h4 class="list-group-item-heading">{{ oneRecipe.name }}</h4>
+                    <p class="list-group-item-text"> {{ oneRecipe.description}} </p>
                 </div>
-                <span class="pull-rigt">
-                    <img src="" alt="" class="img-responsive" style="max-height: 50px;">
+                <span class="pull-right"> 
+                    <img [src]="oneRecipe.imagePath" alt="{{oneRecipe.name}}" class="img-responsive" style="max-height: 50px;" >
                 </span>
             </a>
             <app-recipe-item></app-recipe-item>

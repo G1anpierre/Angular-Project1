@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
+
 
 
 
@@ -9,5 +10,18 @@ import { Component } from "@angular/core";
 })
 
 export class HeaderComponent{
+    @Output() action = new EventEmitter<{valorHeaderRecipies: boolean, valorHeaderShopping: boolean}>();
+    
+    valorHeaderRecipies: boolean = false;
+    valorHeaderShopping: boolean = false;
 
+    activeRecipes() {
+        this.valorHeaderRecipies = !this.valorHeaderRecipies;
+        this.action.emit({valorHeaderRecipies: this.valorHeaderRecipies, valorHeaderShopping: this.valorHeaderShopping});
+    }
+
+    activeShoppingList() {
+        this.valorHeaderShopping = !this.valorHeaderShopping;
+        this.action.emit({valorHeaderRecipies: this.valorHeaderRecipies, valorHeaderShopping: this.valorHeaderShopping});
+    }
 }
